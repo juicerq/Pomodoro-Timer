@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Timer</title>
+  <link rel="shortcut icon" href="https://th.bing.com/th/id/R.4a38a43b3da6a730aea5f189a12b0327?rik=%2fbtN%2bUF9F%2b5Isw&pid=ImgRaw&r=0" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <button data-switched="false" class="theme-switcher"><ion-icon class="switch" name="sunny-outline"></ion-icon></button>
+  <div class="app">
+    <div class="counter">
+      <h1>30:00</h1>
+      <div class="counter-bttns">
+        <button><ion-icon class="counter-controls" name="play-outline"></ion-icon></button>
+        <button><ion-icon class="counter-controls" name="pause-outline"></ion-icon></button>
+        <button><ion-icon class="counter-controls" name="refresh-outline"></ion-icon></button>
+      </div>
+    </div>
+    <div class="volume-section">
+      <div class="cards">
+        <ion-icon class="card-icon rain" name="rainy-outline"></ion-icon>
+        <input type="range" min="0" max="20" value="0" name="rain" id="rain-control">
+      </div>
+      <div class="cards">
+        <ion-icon class="card-icon thunderstorm" name="thunderstorm-outline"></ion-icon>
+        <input type="range" min="0" max="20" value="0" name="thunder" id="thunder-control">
+      </div>
+      <div class="cards">
+        <ion-icon class="card-icon coffee" name="cafe-outline"></ion-icon>
+        <input type="range" min="0" max="20" value="0" name="coffee" id="coffee-control">
+      </div>
+      <div class="cards">
+        <ion-icon class="card-icon leaf" name="leaf-outline"></ion-icon>
+        <input type="range" min="0" max="20" value="0" name="whind" id="whind-control">
+      </div>
+    </div>
+  </div>
+
+  <audio class="whind-audio audio" volume="0" loop autoplay src="assets/wind.mp3"></audio>
+  <audio class="rain-audio audio" volume="0" loop autoplay src="assets/rainny.mp3"></audio>
+  <audio class="thunder-audio audio" volume="0" loop autoplay src="assets/thunder.mp3"></audio>
+  <audio class="coffee-audio audio" volume="0" loop autoplay src="assets/coffee.mp3"></audio>
+
+  
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
