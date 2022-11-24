@@ -15,10 +15,11 @@
   <button data-switched="false" class="theme-switcher"><ion-icon class="switch" name="sunny-outline"></ion-icon></button>
   <div class="app">
     <div class="counter">
-      <h1>30:00</h1>
+      <div class="timer">
+      </div>
       <div class="counter-bttns">
-        <button><ion-icon class="counter-controls" name="play-outline"></ion-icon></button>
-        <button><ion-icon class="counter-controls" name="pause-outline"></ion-icon></button>
+        <button onclick="playInterval()"><ion-icon class="counter-controls" name="play-outline"></ion-icon></button>
+        <button onclick="stopInterval()"><ion-icon class="counter-controls" name="pause-outline"></ion-icon></button>
         <button><ion-icon class="counter-controls" name="refresh-outline"></ion-icon></button>
       </div>
     </div>

@@ -33,3 +33,31 @@ document.querySelectorAll('input').forEach(function (input){
     thisAudio.volume = document.querySelector(`#${input.name}-control`).value / 100
   })
 })
+
+// Timer
+const timer = document.querySelector('.timer')
+
+const second = 1000
+const minute = second * 60
+const hour = minute * 60
+const day = hour * 24
+let timeSpan = 1800000
+
+function countDown(){
+  timeSpan -= second
+  if (timeSpan <= 0){
+    clearInterval(loop)
+    return
+  }
+
+  const minutes = Math.floor((timeSpan % hour) / minute)
+  const seconds = Math.floor((timeSpan % minute) / second)
+  if (seconds < 10){
+    timer.innerHTML = minutes + ':' + '0'+seconds
+  } else {
+    timer.innerHTML = minutes + ':' + seconds
+  }
+}
+
+let loop = setInterval(countDown, 1000)
+
