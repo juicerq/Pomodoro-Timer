@@ -41,7 +41,7 @@ const second = 1000
 const minute = second * 60
 const hour = minute * 60
 const day = hour * 24
-let timeSpan = 1800000
+let timeSpan = 1500000
 
 function countDown(){
   timeSpan -= second
@@ -52,12 +52,50 @@ function countDown(){
 
   const minutes = Math.floor((timeSpan % hour) / minute)
   const seconds = Math.floor((timeSpan % minute) / second)
-  if (seconds < 10){
-    timer.innerHTML = minutes + ':' + '0'+seconds
+  if (minutes < 10){
+    if (seconds < 10){
+      timer.innerHTML = '0'+minutes + ':' + '0' +seconds
+    } else {
+      timer.innerHTML = '0'+minutes + ':' +seconds
+    }
   } else {
     timer.innerHTML = minutes + ':' + seconds
   }
 }
 
-let loop = setInterval(countDown, 1000)
+function RecurringTimer(callback, delay) {
+  var timerId, start, remaining = delay;
+
+  this.pause = function() {
+      window.clearTimeout(timerId);
+      remaining -= new Date() - start;
+  };
+
+  var resume = function() {
+      start = new Date();
+      timerId = window.setTimeout(function() {
+          remaining = delay;
+          resume();
+          callback();
+      }, remaining);
+  };
+
+  this.resume = resume;
+
+  this.resume();
+}
+
+RecurringTimer(countDown, 1000)
+
+function resetLoop(){
+  timeSpan = 1500000
+}
+
+function stopInterval(){
+  pause()
+}
+
+function playInterval(){
+  resume()
+}
 
