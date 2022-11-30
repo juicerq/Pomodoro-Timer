@@ -42,6 +42,7 @@ const minute = second * 60
 const hour = minute * 60
 const day = hour * 24
 let timeSpan = 1500000
+let counting = document.querySelector('.timer').classList.contains('counting')
 
 function countDown(){
   timeSpan -= second
@@ -51,16 +52,11 @@ function countDown(){
   }
 
   const minutes = Math.floor((timeSpan % hour) / minute)
+  const zeroMinutes = minutes < 10? '0' + minutes : minutes
   const seconds = Math.floor((timeSpan % minute) / second)
-  if (minutes < 10){
-    if (seconds < 10){
-      timer.innerHTML = '0'+minutes + ':' + '0' +seconds
-    } else {
-      timer.innerHTML = '0'+minutes + ':' +seconds
-    }
-  } else {
-    timer.innerHTML = minutes + ':' + seconds
-  }
+  const zeroSeconds = seconds < 10? '0' + seconds : seconds
+
+  timer.innerHTML = zeroMinutes + ':' + zeroSeconds
 }
 
 function RecurringTimer(callback, delay) {
@@ -92,10 +88,18 @@ function resetLoop(){
 }
 
 function stopInterval(){
+  document.querySelector('.timer').classList.remove('counting')
+  counting = !counting
   pause()
 }
 
 function playInterval(){
+  if (counting != false){
+    window.alert('O contador já está rodando!')
+    return
+  }
+  document.querySelector('.timer').classList.add('counting')
+  counting = !counting
   resume()
 }
 
