@@ -14,7 +14,9 @@ body {
   background: var(--bgColor);
   color: var(--textColor);
   height: 100vh;
+  width: 100vw;
   font-family: 'roboto', sans-serif;
+  overflow-x: hidden;
 }
 
 .theme-switcher {
@@ -36,29 +38,30 @@ body {
 
 .app {
   height: 100%;
+  width: 100%;
   display: flex;
-  gap: 300px;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .counter {
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
-  width: fit-content;
   font-size: 100px;
 }
 
 .counter-bttns{
   display: flex;
-  width: 100%;
   justify-content: space-evenly;
 }
 
 .counter-bttns button {
   border: none;
   background: none;
+  margin: 0 20px;
 }
 
 .counter-controls{
@@ -70,17 +73,20 @@ body {
 
 .volume-section {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   gap: 50px;
-  width: 500px;
+  width: 100%;
+  padding: 50px;
 }
 
 .cards {
   text-align: center;
   height: 250px;
   width: 200px;
-  box-shadow: 0 0 0px 3.5px var(--textColor);
-  padding-top: 50px;
+  box-shadow: 0 0 0 3.5px var(--textColor);
+  padding: 50px;
 }
 
 .cards input {
